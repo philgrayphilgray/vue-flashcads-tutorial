@@ -28,5 +28,11 @@ export const store = new Vuex.Store({
       mod: ""
     }
   ]
-  }
+},
+getters: {
+
+},
+mutations: {
+
+}
 })
