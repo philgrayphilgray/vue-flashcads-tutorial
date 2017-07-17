@@ -2,6 +2,8 @@
 
 > A Vue.js project
 
+Original prototype: https://codepen.io/phillipgray/pen/ZyZJeK
+
 ## Build Setup
 
 ``` bash
