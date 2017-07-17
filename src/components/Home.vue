@@ -1,22 +1,21 @@
-<template>
-<div class="home">
-  {{ msg }}
-</div>
+<template lang="pug">
+div
+  div(v-for="card in getCards")
+    p {{ card.question }}
 </template>
 
 <script>
-import {
-  mapGetters
-} from 'vuex'
+import { mapGetters } from 'vuex'
 export default {
   name: 'home',
   data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'test'
     }
   },
   computed: {
-     ...mapGetters({})
+     ...mapGetters([
+       'getCards'])
   }
 }
 </script>

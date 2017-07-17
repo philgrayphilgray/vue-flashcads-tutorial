@@ -30,7 +30,9 @@ export const store = new Vuex.Store({
   ]
 },
 getters: {
-
+getCards: state =>{
+  return state.deck.filter(card => card.mod);
+}
 },
 mutations: {
 
