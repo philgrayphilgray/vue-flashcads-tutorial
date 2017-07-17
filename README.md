@@ -1,8 +1,8 @@
-# vue-flashcards-tutorial
+# Vue Flashcards
 
-> A Vue.js project
+> A Vue.js flashcards app. Prototype on  [Codepen](https://codepen.io/phillipgray/pen/ZyZJeK). Wireframe in Figma. Step-by-step tutorial to come.
 
-Original prototype: https://codepen.io/phillipgray/pen/ZyZJeK
+![figma wireframe](https://image.prntscr.com/image/KOx-wF6_TJStk0ozUXHeLg.png)
 
 ## Build Setup
 
