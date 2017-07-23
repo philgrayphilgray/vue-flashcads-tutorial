@@ -1,7 +1,6 @@
 <template lang="pug">
-div
-  div(v-for="card in getCards")
-    p {{ card.question }}
+main
+  h2 Home
 </template>
 
 <script>
