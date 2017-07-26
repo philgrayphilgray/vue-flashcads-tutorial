@@ -3,8 +3,8 @@
   header
     router-link.brand(tag='h1', :to='{name:"decks"}') Flashcards
     .avatar
-  router-view
-  DeckControls
+  router-view(name="default")
+  router-view(name="a")
 
 </template>
 <script>
@@ -30,6 +30,7 @@ export default {
   align-items: center;
   min-height: 100vh;
 }
+  
 #app {
   position: relative;
   width: calc(750px/3);
@@ -38,6 +39,9 @@ export default {
   border: 1px solid #000;
   overflow-y: hidden;
 }
+    .fa.fa-arrow-left{
+    cursor: pointer;
+  }
 header {
   position: fixed;
   width: 100%;
@@ -71,9 +75,7 @@ header {
     background: #999999;
     border-radius: 50%;
   }
-  .fa.fa-arrow-left{
-    cursor: pointer;
-  }
+
 }
 main, footer {
   position: relative;
@@ -96,7 +98,7 @@ main, footer {
       max-height: 261px;
       margin: 0;
       padding: 0;
-      overflow: scroll;
+      overflow-y: scroll;
     }
      h2{
       font-size: 1em;

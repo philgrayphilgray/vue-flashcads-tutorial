@@ -2,7 +2,7 @@
 main
   span.fa.fa-arrow-left(@click="goBack")  Back to Deck
   h2 Card edit
-  textarea(v-model="current.question", rows="3", @keyup.enter="save()")
+  textarea(v-model="current.question", rows="4", @keyup.enter="save()")
   textarea(v-model="current.answer", rows="4", @keyup.enter="save()")
 </template>
 
@@ -31,6 +31,7 @@ export default {
     ...mapActions([
       'saveCard'
     ]),
+      
     getTimeStamp() {
   const now = new Date();
   return now.toJSON();

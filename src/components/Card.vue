@@ -1,5 +1,4 @@
 <template lang="pug">
-main
   .card(@click="editCard(card)")
     span.score(v-if="card.mod") {{ calculateScore(card) }}%
     h3.card-title(:class="{'fa fa-plus': card.mod === ''}") {{ card.question ? card.question : ' Add New' }}
