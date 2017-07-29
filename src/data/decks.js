@@ -1,5 +1,5 @@
 export default [
-{
+  {
     question: "1 How many planets are there in the solar system?",
     answer: "8 or 9",
     attempts: 0,
@@ -19,7 +19,7 @@ export default [
     deck: "First Deck",
     deckId: "first-deck"
   },
-{
+  {
     question: "2 How many planets are there in the solar system?",
     answer: "8 or 9",
     attempts: 0,
@@ -39,4 +39,4 @@ export default [
     deck: "Second Deck",
     deckId: "second-deck"
   }
-]
+];

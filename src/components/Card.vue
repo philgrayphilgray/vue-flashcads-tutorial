@@ -6,16 +6,16 @@
 
 <script>
 export default {
-  props: ['card'],
+  props: ["card"],
   methods: {
     calculateScore(card) {
-  return Number.parseInt(card.correct / card.attempts * 100) || 0;
-},
-editCard(card){
-  this.$router.push({ name: 'edit', params: { id: card.id }})
-}
+      return Number.parseInt(card.correct / card.attempts * 100) || 0;
+    },
+    editCard(card) {
+      this.$router.push({ name: "edit", params: { id: card.id } });
+    }
   }
-}
+};
 </script>
 
 <style lang="scss">

@@ -7,49 +7,48 @@ main
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions } from "vuex";
 export default {
-  data(){
-    return{
+  data() {
+    return {
       current: []
-    }
+    };
   },
-  props: ['id'],
+  props: ["id"],
   computed: {
-    ...mapGetters([
-      'currentDeck',
-      'currentCard'
-    ]),
-    getCurrentCard(){
-      return (this.currentDeck.filter( item =>  item.id === this.id))
+    ...mapGetters(["currentDeck", "currentCard"]),
+    getCurrentCard() {
+      return this.currentDeck.filter(item => item.id === this.id);
     }
   },
-   beforeMount(){
-    [this.current.question, this.current.answer, this.current.id] = [this.getCurrentCard[0].question, this.getCurrentCard[0].answer, this.id];
+  beforeMount() {
+    [this.current.question, this.current.answer, this.current.id] = [
+      this.getCurrentCard[0].question,
+      this.getCurrentCard[0].answer,
+      this.id
+    ];
   },
   methods: {
-    ...mapActions([
-      'saveCard'
-    ]),
-      
+    ...mapActions(["saveCard"]),
+
     getTimeStamp() {
-  const now = new Date();
-  return now.toJSON();
-},
-    goBack(){
-      this.$router.go(-1)
+      const now = new Date();
+      return now.toJSON();
     },
-    save(){
+    goBack() {
+      this.$router.go(-1);
+    },
+    save() {
       const updates = {
         question: this.current.question,
         answer: this.current.answer,
         id: this.current.id,
         mod: this.getTimeStamp()
-      }
-      this.saveCard(updates)
+      };
+      this.saveCard(updates);
     }
   }
-}
+};
 </script>
 
 <style lang="scss">

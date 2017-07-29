@@ -1,45 +1,45 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Home from '@/components/Home'
-import Deck from '@/components/Deck'
-import Decks from '@/components/Decks'
-import DeckControls from '@/components/DeckControls'
-import CardEdit from '@/components/CardEdit'
+import Vue from "vue";
+import Router from "vue-router";
+import Home from "@/components/Home";
+import Deck from "@/components/Deck";
+import Decks from "@/components/Decks";
+import DeckControls from "@/components/DeckControls";
+import CardEdit from "@/components/CardEdit";
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
-  mode: 'history',
+  mode: "history",
   routes: [
     {
-      path: '/',
-      name: 'Home',
+      path: "/",
+      name: "Home",
       component: Home
     },
     {
-      path: '/decks',
-      name: 'decks',
+      path: "/decks",
+      name: "decks",
       components: {
         default: Decks
       }
     },
     {
-      path: '/:deckId',
-      name: 'deck',
+      path: "/:deckId",
+      name: "deck",
       components: {
         default: Deck,
         a: DeckControls
       },
-            props: {default: true, a:true}
+      props: { default: true, a: true }
     },
     {
-      path: '/:deckId/:id/edit',
-      name: 'edit',
+      path: "/:deckId/:id/edit",
+      name: "edit",
       components: {
         default: CardEdit,
         a: DeckControls
       },
-      props: {default: true, a:true}
+      props: { default: true, a: true }
     }
   ]
-})
+});

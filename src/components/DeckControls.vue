@@ -2,7 +2,7 @@
 footer
   template(v-if='!id')
     .btn Play
-    .btn Reset Scores  
+    .btn Reset Scores
   template(v-if='id')
     .btn Save
     .btn Delete
@@ -10,8 +10,8 @@ footer
 
 <script>
 export default {
-  props:["id", "deckId"]
-}
+  props: ["id", "deckId"]
+};
 </script>
 
 <style lang="css">

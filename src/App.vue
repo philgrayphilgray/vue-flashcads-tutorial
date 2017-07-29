@@ -8,15 +8,15 @@
 
 </template>
 <script>
-import DeckControls from './components/DeckControls.vue'
+import DeckControls from "./components/DeckControls.vue";
 export default {
-  created(){
-    this.$store.dispatch('initDecks')
+  created() {
+    this.$store.dispatch("initDecks");
   },
   components: {
     DeckControls
   }
-}
+};
 </script>
 
 <style lang='scss'>
@@ -30,7 +30,7 @@ export default {
   align-items: center;
   min-height: 100vh;
 }
-  
+
 #app {
   position: relative;
   width: calc(750px/3);

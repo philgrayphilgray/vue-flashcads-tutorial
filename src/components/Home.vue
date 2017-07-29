@@ -4,22 +4,22 @@ main
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from "vuex";
 export default {
-  name: 'home',
+  name: "home",
   data() {
     return {
-      msg: 'test'
-    }
+      msg: "test"
+    };
   },
   computed: {
-     ...mapGetters([
-       'getCards'])
+    ...mapGetters(["getCards"])
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
 </style>
+vue

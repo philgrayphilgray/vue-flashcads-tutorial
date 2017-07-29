@@ -7,27 +7,25 @@ main
 </template>
 
 <script>
-  import Card from './Card.vue'
-  import { mapGetters } from 'vuex'
-  export default {
-    components:{
-      Card
-    },
-    props: ['deckId'],
-    computed: {
-       ...mapGetters([
-         'currentDeck'
-       ]),
-        filteredDecks(){
-          return this.currentDeck.filter((item) => item.deckId === this.deckId)
-        }
-    },
-    methods: {
-      goBack(){
-        this.$router.go(-1)
-      }
+import Card from "./Card.vue";
+import { mapGetters } from "vuex";
+export default {
+  components: {
+    Card
+  },
+  props: ["deckId"],
+  computed: {
+    ...mapGetters(["currentDeck"]),
+    filteredDecks() {
+      return this.currentDeck.filter(item => item.deckId === this.deckId);
+    }
+  },
+  methods: {
+    goBack() {
+      this.$router.go(-1);
     }
   }
+};
 </script>
 
 <style lang="scss">

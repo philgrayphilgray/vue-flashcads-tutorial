@@ -6,19 +6,17 @@ main
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from "vuex";
 export default {
   computed: {
-     ...mapGetters([
-       'decks'
-     ])
+    ...mapGetters(["decks"])
   },
   methods: {
-    getDeck(item){
-      this.$router.push({name: 'deck', params: { deckId: item.deckId }})
+    getDeck(item) {
+      this.$router.push({ name: "deck", params: { deckId: item.deckId } });
     }
   }
-}
+};
 </script>
 
 <style lang="css">
