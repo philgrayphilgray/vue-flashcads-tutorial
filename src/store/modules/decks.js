@@ -14,6 +14,12 @@ const mutations = {
       record.question = question;
       record.answer = answer;
     }
+  },
+  DELETE_CARD(state, { id }) {
+    const index = state.decks.findIndex(el => el.id === id);
+    if (index) {
+      state.decks.splice(index, 1);
+    }
   }
 };
 const getters = {
@@ -41,6 +47,9 @@ const actions = {
   },
   saveCard: ({ commit }, updates) => {
     commit("SAVE_CARD", updates);
+  },
+  deleteCard: ({ commit }, card) => {
+    commit("DELETE_CARD", card);
   }
 };
 export default {

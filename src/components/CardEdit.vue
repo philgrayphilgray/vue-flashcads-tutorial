@@ -7,7 +7,7 @@ div
     textarea(v-model="current.answer", rows="4")
   footer
     .btn(@click="save()") Save
-    .btn Delete
+    .btn(@click="removeCard()") Delete
 </template>
 
 <script>
@@ -33,7 +33,7 @@ export default {
     ];
   },
   methods: {
-    ...mapActions(["saveCard"]),
+    ...mapActions(["saveCard", "deleteCard"]),
 
     getTimeStamp() {
       const now = new Date();
@@ -50,6 +50,13 @@ export default {
         mod: this.getTimeStamp()
       };
       this.saveCard(updates);
+      this.goBack();
+    },
+    removeCard() {
+      const card = {
+        id: this.current.id
+      };
+      this.deleteCard(card);
       this.goBack();
     }
   }
