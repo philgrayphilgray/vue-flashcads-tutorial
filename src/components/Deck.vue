@@ -1,9 +1,15 @@
 <template lang="pug">
-main
-  span.fa.fa-arrow-left(@click="goBack")  Back to Decks
-  .deck
-    h2 {{ filteredDecks[0].deck }}
-    Card(v-for='card in filteredDecks', :card='card')
+div
+  main
+    span.fa.fa-arrow-left(@click="goBack")  Back to Decks
+    .deck
+      h2 {{ filteredDecks[0].deck }}
+      Card(v-for='card in filteredDecks', :card='card')
+      .card
+        h3.card-title.fa.fa-plus  Add New Card
+  footer
+    .btn() Play
+    .btn() Reset Scores
 </template>
 
 <script>
