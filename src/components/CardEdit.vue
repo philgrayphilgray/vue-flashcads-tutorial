@@ -1,9 +1,13 @@
 <template lang="pug">
-main
-  span.fa.fa-arrow-left(@click="goBack")  Back to Deck
-  h2 Card edit
-  textarea(v-model="current.question", rows="4", @keyup.enter="save()")
-  textarea(v-model="current.answer", rows="4", @keyup.enter="save()")
+div
+  main
+    span.fa.fa-arrow-left(@click="goBack")  Back to Deck
+    h2 Card edit
+    textarea(v-model="current.question", rows="4")
+    textarea(v-model="current.answer", rows="4")
+  footer
+    .btn(@click="save()") Save
+    .btn Delete
 </template>
 
 <script>
@@ -46,6 +50,7 @@ export default {
         mod: this.getTimeStamp()
       };
       this.saveCard(updates);
+      this.goBack();
     }
   }
 };

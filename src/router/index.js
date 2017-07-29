@@ -3,7 +3,6 @@ import Router from "vue-router";
 import Home from "@/components/Home";
 import Deck from "@/components/Deck";
 import Decks from "@/components/Decks";
-import DeckControls from "@/components/DeckControls";
 import CardEdit from "@/components/CardEdit";
 
 Vue.use(Router);
@@ -27,19 +26,17 @@ export default new Router({
       path: "/:deckId",
       name: "deck",
       components: {
-        default: Deck,
-        a: DeckControls
+        default: Deck
       },
-      props: { default: true, a: true }
+      props: { default: true }
     },
     {
       path: "/:deckId/:id/edit",
       name: "edit",
       components: {
-        default: CardEdit,
-        a: DeckControls
+        default: CardEdit
       },
-      props: { default: true, a: true }
+      props: { default: true }
     }
   ]
 });

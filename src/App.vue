@@ -4,17 +4,12 @@
     router-link.brand(tag='h1', :to='{name:"decks"}') Flashcards
     .avatar
   router-view(name="default")
-  router-view(name="a")
 
 </template>
 <script>
-import DeckControls from "./components/DeckControls.vue";
 export default {
   created() {
     this.$store.dispatch("initDecks");
-  },
-  components: {
-    DeckControls
   }
 };
 </script>
