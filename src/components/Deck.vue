@@ -5,7 +5,7 @@ div
     .deck
       h2 {{ filteredDecks[0].deck }}
       Card(v-for='card in filteredDecks', :card='card')
-      .card
+      .card(@click="createCard()")
         h3.card-title.fa.fa-plus  Add New Card
   footer
     .btn() Play
@@ -28,7 +28,10 @@ export default {
   },
   methods: {
     goBack() {
-      this.$router.go(-1);
+      this.$router.push({ name: "decks" });
+    },
+    createCard() {
+      console.log("new card");
     }
   }
 };

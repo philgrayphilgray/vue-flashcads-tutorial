@@ -18,7 +18,7 @@ export default {
       current: []
     };
   },
-  props: ["id"],
+  props: ["id", "deckId"],
   computed: {
     ...mapGetters(["currentDeck", "currentCard"]),
     getCurrentCard() {
@@ -26,11 +26,16 @@ export default {
     }
   },
   beforeMount() {
-    [this.current.question, this.current.answer, this.current.id] = [
-      this.getCurrentCard[0].question,
-      this.getCurrentCard[0].answer,
-      this.id
-    ];
+    if (this.getCurrentCard) {
+      [this.current.question, this.current.answer, this.current.id] = [
+        this.getCurrentCard[0].question,
+        this.getCurrentCard[0].answer,
+        this.id
+      ];
+    } else {
+      this.current.deck = this.deckId;
+      this.current.id = this.id;
+    }
   },
   methods: {
     ...mapActions(["saveCard", "deleteCard"]),
@@ -40,17 +45,18 @@ export default {
       return now.toJSON();
     },
     goBack() {
-      this.$router.go(-1);
+      this.$router.push({ name: "deck" });
     },
     save() {
       const updates = {
         question: this.current.question,
         answer: this.current.answer,
         id: this.current.id,
+        deck: this.current.deck,
         mod: this.getTimeStamp()
       };
+      console.log(updates);
       this.saveCard(updates);
-      this.goBack();
     },
     removeCard() {
       const card = {

@@ -8,11 +8,15 @@ const mutations = {
   SET_DECKS(state, decks) {
     state.decks = decks;
   },
-  SAVE_CARD(state, { question, answer, id }) {
+  SAVE_CARD(state, { question, answer, id, mod }) {
     const record = state.decks.find(el => el.id === id);
     if (record) {
       record.question = question;
       record.answer = answer;
+      record.mod = mod;
+    } else {
+      console.log(record);
+      state.decks.push({ record });
     }
   },
   DELETE_CARD(state, { id }) {
