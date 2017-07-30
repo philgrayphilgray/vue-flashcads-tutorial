@@ -2,7 +2,7 @@
 main
   h1 My Decks
   .card(v-for="item in decks", @click="getDeck(item)")
-    h2 {{ item.deck }}
+    h2 {{ item.deckId }}
 </template>
 
 <script>

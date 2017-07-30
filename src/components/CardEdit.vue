@@ -15,27 +15,28 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   data() {
     return {
-      current: []
+      current: {}
     };
   },
   props: ["id", "deckId"],
   computed: {
-    ...mapGetters(["currentDeck", "currentCard"]),
+    ...mapGetters(["currentDeck"]),
     getCurrentCard() {
-      return this.currentDeck.filter(item => item.id === this.id);
+      const currentCard = this.currentDeck.filter(item => item.id === this.id);
+      const newCard = {
+        question: "",
+        answer: "",
+        mod: ""
+      };
+      return currentCard ? currentCard : newCard;
     }
   },
-  beforeMount() {
-    if (this.getCurrentCard) {
-      [this.current.question, this.current.answer, this.current.id] = [
-        this.getCurrentCard[0].question,
-        this.getCurrentCard[0].answer,
-        this.id
-      ];
-    } else {
-      this.current.deck = this.deckId;
-      this.current.id = this.id;
-    }
+  created() {
+    [this.current.question, this.current.answer, this.current.id] = [
+      this.getCurrentCard[0].question,
+      this.getCurrentCard[0].answer,
+      this.id
+    ];
   },
   methods: {
     ...mapActions(["saveCard", "deleteCard"]),
@@ -51,8 +52,8 @@ export default {
       const updates = {
         question: this.current.question,
         answer: this.current.answer,
-        id: this.current.id,
-        deck: this.current.deck,
+        id: this.id,
+        deckId: this.deckId,
         mod: this.getTimeStamp()
       };
       console.log(updates);

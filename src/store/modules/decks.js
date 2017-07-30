@@ -15,9 +15,15 @@ const mutations = {
       record.answer = answer;
       record.mod = mod;
     } else {
-      console.log(record);
-      state.decks.push({ record });
+      state.decks.push({
+        question,
+        answer,
+        id,
+        deckId,
+        mod
+      });
     }
+    console.log(state.decks);
   },
   DELETE_CARD(state, { id }) {
     const index = state.decks.findIndex(el => el.id === id);
@@ -28,21 +34,10 @@ const mutations = {
 };
 const getters = {
   decks: state => {
-    return _.uniqBy(state.decks, "deck");
+    return _.uniqBy(state.decks, "deckId");
   },
   currentDeck: state => {
     return state.decks;
-  },
-  currentCard(state, getters) {
-    return state.decks.map(deck => {
-      const record = getters.decks.find(el => el.id === deck.id);
-      return {
-        id: deck.id,
-        question: deck.question,
-        answer: deck.answer,
-        mod: deck.mod
-      };
-    });
   }
 };
 const actions = {
